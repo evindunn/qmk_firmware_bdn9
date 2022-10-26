@@ -23,26 +23,16 @@ enum encoder_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
-        | Knob 1: Vol Dn/Up |      | Knob 2: Page Dn/Up |
-        | Press: Mute       | Home | Press: Play/Pause  |
-        | Hold: Layer 2     | Up   | RGB Mode           |
-        | Left              | Down | Right              |
+        | Home   | Knob 1: Vol Dn/Up | Pg Up   |
+        |        | Press: Mute       |         |
+        | End    | Up                | Pg Down |
+        | Left   | Down              | Right   |
      */
     [0] = LAYOUT(
         KC_HOME, KC_MUTE, KC_PAGE_UP,
         KC_END , KC_UP  , KC_PAGE_DOWN,
         KC_LEFT, KC_DOWN, KC_RGHT
-    ),
-    /*
-        | QK_BOOT          | N/A  | Media Stop |
-        | Held: Layer 2  | Home | RGB Mode   |
-        | Media Previous | End  | Media Next |
-     */
-    // [1] = LAYOUT(
-    //     QK_BOOT  , BL_STEP, KC_STOP,
-    //     _______, KC_HOME, RGB_MOD,
-    //     KC_MPRV, KC_END , KC_MNXT
-    // ),
+    )
 };
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
@@ -58,5 +48,5 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 void keyboard_post_init_user(void) {
     rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_evin_effect);
-    rgb_matrix_set_speed_noeeprom(8);
+    rgb_matrix_set_speed_noeeprom(16);
 }
